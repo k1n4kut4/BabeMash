@@ -4,23 +4,27 @@
   </mat-toolbar-row> 
 </mat-toolbar>
 
-<div class="container girl-card-container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
  
-  <mat-card fxFlex="40%" class="girl-card">
-    <mat-card-header> 
-      <mat-card-title>Lucy Pinder</mat-card-title> 
-    </mat-card-header>
-    <img mat-card-image src="./assets/img/fdsf7g8sdf.jpg" alt="Photo of Lucy Pinder">
-    <mat-card-content></mat-card-content> 
-  </mat-card> 
+  <div class="girl-card-container">
 
-  <mat-card fxFlex="40%" class="girl-card">
-    <mat-card-header>
-        <mat-card-title>Kate Upton</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="./assets/img/k3ts7g.jpeg" alt="Photo of Kate Upton">
-    <mat-card-content></mat-card-content> 
-  </mat-card> 
+    <mat-card fxFlex="50%" class="girl-card">
+      <mat-card-header> 
+        <mat-card-title>Lucy Pinder</mat-card-title> 
+      </mat-card-header>
+      <div mat-card-image id="girl-card-img-a"></div>
+      <mat-card-content></mat-card-content> 
+    </mat-card> 
+
+    <mat-card fxFlex="50%" class="girl-card">
+      <mat-card-header>
+          <mat-card-title>Kate Upton</mat-card-title>
+      </mat-card-header>
+      <div mat-card-image id="girl-card-img-b"></div>
+      <mat-card-content></mat-card-content> 
+    </mat-card> 
+
+  </div>
 
 </div>
 
