@@ -8,10 +8,30 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'babe-smash';
 
-  total_girls = 0;
+  fakeDatabase = [
+    {
+      "name": "Iga Wyrwal",
+      "img": "5fsdfgdg.jpg",
+      "rating": 10
+    },
+    {
+      "name": "Lucy Pinder",
+      "img": "fdsf7g8sdf.jpg",
+      "rating": 10
+    },
+    {
+      "name": "Kate Upton",
+      "img": "k3ts7g.jpeg",
+      "rating": 10
+    },
+    {
+      "name": "Jordan Carver",
+      "img": "2gd234fgd.jpg",
+      "rating": 10
+    }
+  ];
 
-  random_a = 0;
-  random_b = 0;
+  total_girls = 0; 
 
   twoGirlsData = [];
 
@@ -25,37 +45,37 @@ export class AppComponent {
 
   ngOnInit(){
     //get total_girls count from database
-
+    this.total_girls = this.fakeDatabase.length;
     this.loadNewGirls();
   }
 
-  chooseTwoRandomGirls() {
-    this.total_girls = 2;
+  chooseTwoRandomGirls() { 
+    let random_a = Math.floor((Math.random() * this.total_girls) + 1);
+    let random_b = Math.floor((Math.random() * this.total_girls) + 1);
+    
+    while(random_a == random_b){
+      random_b = Math.floor((Math.random() * this.total_girls) + 1);
+    }  
 
-    this.random_a = Math.floor((Math.random() * this.total_girls) + 1);
-	  this.random_b = Math.floor((Math.random() * this.total_girls) + 1);
-
-    while(this.random_a == this.random_b){
-      this.random_b = Math.floor((Math.random() * this.total_girls) + 1);
-    } 
-
-    let twoGirls : string[] = ["a","b"];
+    let twoGirls : number[] = [random_a,random_b];
     return twoGirls;    
   }
 
   getGirlData(girl) {
     //get girl's data from database
-
-    let data : string[] = ["a","b"];
+    girl = girl - 1;
+    let data = this.fakeDatabase[girl];
     return data; 
   }
 
   loadNewGirls() {
-    let twoGirls = this.chooseTwoRandomGirls();
+    let twoGirls = this.chooseTwoRandomGirls(); 
 
-    for (let girl in twoGirls) {
-      this.twoGirlsData.push(this.getGirlData(girl));
+    for (let girl in twoGirls) { 
+      this.twoGirlsData.push(this.getGirlData(twoGirls[girl]));
     } 
+
+    console.log(this.twoGirlsData);
   }
 
   voteForGirl(girl_chosen){
@@ -65,6 +85,9 @@ export class AppComponent {
     this.calculateRatings();
 
     //update girl's ratings in database
+
+    //upload two new girls
+    //this.loadNewGirls();
   }
 
   calculateRatings() {                 
@@ -82,5 +105,8 @@ export class AppComponent {
       this.face_b_new_rating = this.twoGirlsData[1]["rating"] + (this.k * this.eb);
 
     }
+
+    console.log(this.face_a_new_rating);
+    console.log(this.face_b_new_rating);
   }
 }
