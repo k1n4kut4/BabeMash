@@ -6,6 +6,7 @@
 
     .girl-card { 
         margin: 0;  
+        cursor: pointer;
     
         .mat-card-image { 
             height: 500px;
@@ -20,6 +21,17 @@
         #girl-card-img-b {
             background-image: url('../assets/img/k3ts7g.jpeg');
         } 
+
+        .mat-card-actions {
+            padding: 0;
+            margin: -16px;
+            text-align: center;
+
+            .mat-button {
+                padding: 12px 24px;
+                font-size: 2em;
+            }
+        }
        
     } 
 }
