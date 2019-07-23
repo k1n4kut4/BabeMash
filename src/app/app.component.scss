@@ -1,3 +1,12 @@
+.mat-toolbar-row {
+    text-align: center;
+
+    h1 {
+        font-size: 1em;
+        margin: 0 auto;
+    }
+}
+
 .girl-card-container {
     background: #e0e0e0; 
     max-width: 800px;
@@ -9,7 +18,7 @@
         cursor: pointer;
     
         .mat-card-image { 
-            height: 500px;
+            height: 480px;
             overflow-y: hidden; 
             background-size: 100% auto;
         }
@@ -36,3 +45,34 @@
     } 
 }
 
+@media only screen and (max-width: 768px) {
+
+    .girl-card-container { 
+    
+        .girl-card {  
+        
+            .mat-card-image { 
+                height: 305px;
+
+            }
+
+        }
+
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+    .girl-card-container { 
+    
+        .girl-card {  
+        
+            .mat-card-image { 
+                height: 190px !important;
+
+            }
+
+        }
+
+    }
+}
