@@ -97,13 +97,15 @@ export class AppComponent {
   loadNewGirls() {
     let twoGirls = this.chooseTwoRandomGirls(); 
 
+    this.twoGirlsData = [];
+
     for (let girl in twoGirls) { 
       this.twoGirlsData.push(this.getGirlData(twoGirls[girl]));
     }  
 
     //need to update DOM
 
-    
+
   }
 
   voteForGirl(girl_chosen){
