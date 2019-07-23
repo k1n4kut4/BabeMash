@@ -84,8 +84,14 @@ export class AppComponent {
   getGirlData(girl) {
     //get girl's data from database
     girl = girl - 1;
-    let data = this.fakeDatabase[girl];
-    return data; 
+    let girlData = this.fakeDatabase[girl];
+    let data = [{
+      "id": girl,
+      "name": girlData["name"],
+      "rating": girlData["rating"],
+      "img": girlData["img"] 
+    }]; 
+    return data[0]; 
   }
 
   loadNewGirls() {
@@ -93,9 +99,11 @@ export class AppComponent {
 
     for (let girl in twoGirls) { 
       this.twoGirlsData.push(this.getGirlData(twoGirls[girl]));
-    } 
+    }  
 
-    console.log(this.twoGirlsData);
+    //need to update DOM
+
+    
   }
 
   voteForGirl(girl_chosen){
@@ -105,9 +113,16 @@ export class AppComponent {
     this.calculateRatings();
 
     //update girl's ratings in database
+    let girl_a = this.twoGirlsData[0]["id"]
+    let girl_b = this.twoGirlsData[1]["id"]
+
+    this.fakeDatabase[girl_a].rating = this.ea;
+    this.fakeDatabase[girl_b].rating = this.eb;
+
+    console.log(this.fakeDatabase);
 
     //upload two new girls
-    //this.loadNewGirls();
+    this.loadNewGirls();
   }
 
   calculateRatings() {                 
