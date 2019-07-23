@@ -53,9 +53,7 @@ export class AppComponent {
 
   total_girls = 0; 
 
-  twoGirlsData = [];
-
-  girl_chosen = '';
+  twoGirlsData = []; 
 
   ea = 0;
   eb = 0;
@@ -103,16 +101,13 @@ export class AppComponent {
       this.twoGirlsData.push(this.getGirlData(twoGirls[girl]));
     }  
 
-    //need to update DOM
-
-
+    //updates DOM on array change
   }
 
-  voteForGirl(girl_chosen){
-    this.girl_chosen = girl_chosen;
+  voteForGirl(girl_chosen){ 
     console.log(girl_chosen);
 
-    this.calculateRatings();
+    this.calculateRatings(girl_chosen);
 
     //update girl's ratings in database
     let girl_a = this.twoGirlsData[0]["id"]
@@ -127,11 +122,11 @@ export class AppComponent {
     this.loadNewGirls();
   }
 
-  calculateRatings() {                 
+  calculateRatings(girl_chosen) {                 
     this.ea = 1/(1+10^((this.twoGirlsData[0]["rating"] - this.twoGirlsData[1]["rating"])/400));
     this.eb = 1/(1+10^((this.twoGirlsData[1]["rating"] - this.twoGirlsData[0]["rating"])/400));
 
-    if(this.girl_chosen == "a") {
+    if(girl_chosen == 0) {
 
       this.face_a_new_rating = this.twoGirlsData[0]["rating"] + (this.k * this.ea);
       this.face_b_new_rating = this.twoGirlsData[1]["rating"] - (this.k * this.eb);
