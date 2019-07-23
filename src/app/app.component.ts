@@ -60,8 +60,8 @@ export class AppComponent {
 
   calculateRatings() { 
                       
-    ea = 1/(1+10^((this.twoGirlsData[0]["rating"] - this.twoGirlsData[1]["rating"])/400));
-    eb = 1/(1+10^((this.twoGirlsData[1]["rating"] - this.twoGirlsData[0]["rating"])/400));
+    this.ea = 1/(1+10^((this.twoGirlsData[0]["rating"] - this.twoGirlsData[1]["rating"])/400));
+    this.eb = 1/(1+10^((this.twoGirlsData[1]["rating"] - this.twoGirlsData[0]["rating"])/400));
 
     if(this.girl_chosen == "a")
     {
