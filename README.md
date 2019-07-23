@@ -1,4 +1,4 @@
-# babe-mash  
+# BabeMash  
 
 ![Live app](./readme_imgs/live.png) 
 
