@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'babe-smash';
+
+  voteForGirl(girl_chosen){
+    console.log(girl_chosen);
+  }
 }
