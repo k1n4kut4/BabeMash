@@ -28,6 +28,26 @@ export class AppComponent {
       "name": "Jordan Carver",
       "img": "2gd234fgd.jpg",
       "rating": 10
+    },
+    {
+      "name": "Iga Wyrwal - 2",
+      "img": "sfd8gtg.jpg",
+      "rating": 10
+    },
+    {
+      "name": "Lucy Pinder - 2",
+      "img": "gyd8fgtdg.jpeg",
+      "rating": 10
+    },
+    {
+      "name": "Michelle Marsh",
+      "img": "fdsgtdfs8t.jpeg",
+      "rating": 10
+    },
+    {
+      "name": "Doutzen Kroes",
+      "img": "efgfdft.jpg",
+      "rating": 10
     }
   ];
 

@@ -18,7 +18,7 @@
         cursor: pointer;
     
         .mat-card-image { 
-            height: 480px;
+            height: 520px;
             overflow-y: hidden; 
             background-size: 100% auto;
         } 
@@ -35,6 +35,22 @@
         }
        
     } 
+}
+
+@media only screen and (max-width: 1020px) {
+
+    .girl-card-container { 
+    
+        .girl-card {  
+        
+            .mat-card-image { 
+                height: 480px;
+
+            }
+
+        }
+
+    }
 }
 
 @media only screen and (max-width: 768px) {
