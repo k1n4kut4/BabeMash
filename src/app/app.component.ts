@@ -137,6 +137,9 @@ export class AppComponent {
       face_b_new_rating = this.twoGirlsData[1]["rating"] + (this.k * eb);
     }
 
+    face_a_new_rating = Math.round( face_a_new_rating * 1000 ) / 1000;
+    face_b_new_rating = Math.round( face_b_new_rating * 1000 ) / 1000;
+
     return [face_a_new_rating, face_b_new_rating];
   }
 }
