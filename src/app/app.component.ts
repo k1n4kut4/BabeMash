@@ -107,14 +107,14 @@ export class AppComponent {
   voteForGirl(girl_chosen){ 
     console.log(girl_chosen);
 
-    this.calculateRatings(girl_chosen);
+    let newRatings = this.calculateRatings(girl_chosen);
 
     //update girl's ratings in database
     let girl_a = this.twoGirlsData[0]["id"]
     let girl_b = this.twoGirlsData[1]["id"]
 
-    this.fakeDatabase[girl_a].rating = this.ea;
-    this.fakeDatabase[girl_b].rating = this.eb;
+    this.fakeDatabase[girl_a].rating = newRatings[0];
+    this.fakeDatabase[girl_b].rating = newRatings[1];
 
     console.log(this.fakeDatabase);
 
@@ -123,22 +123,20 @@ export class AppComponent {
   }
 
   calculateRatings(girl_chosen) {                 
-    this.ea = 1/(1+10^((this.twoGirlsData[0]["rating"] - this.twoGirlsData[1]["rating"])/400));
-    this.eb = 1/(1+10^((this.twoGirlsData[1]["rating"] - this.twoGirlsData[0]["rating"])/400));
+    let ea = 1/(1+10^((this.twoGirlsData[0]["rating"] - this.twoGirlsData[1]["rating"])/400));
+    let eb = 1/(1+10^((this.twoGirlsData[1]["rating"] - this.twoGirlsData[0]["rating"])/400));
+
+    let face_a_new_rating = 0;
+    let face_b_new_rating = 0;
 
     if(girl_chosen == 0) {
-
-      this.face_a_new_rating = this.twoGirlsData[0]["rating"] + (this.k * this.ea);
-      this.face_b_new_rating = this.twoGirlsData[1]["rating"] - (this.k * this.eb);
-
+      face_a_new_rating = this.twoGirlsData[0]["rating"] + (this.k * ea);
+      face_b_new_rating = this.twoGirlsData[1]["rating"] - (this.k * eb);
     } else {
-
-      this.face_a_new_rating = this.twoGirlsData[0]["rating"] - (this.k * this.ea);
-      this.face_b_new_rating = this.twoGirlsData[1]["rating"] + (this.k * this.eb);
-
+      face_a_new_rating = this.twoGirlsData[0]["rating"] - (this.k * ea);
+      face_b_new_rating = this.twoGirlsData[1]["rating"] + (this.k * eb);
     }
 
-    console.log(this.face_a_new_rating);
-    console.log(this.face_b_new_rating);
+    return [face_a_new_rating, face_b_new_rating];
   }
 }
