@@ -30,12 +30,12 @@ export class AppComponent {
       "rating": 10
     },
     {
-      "name": "Iga Wyrwal - 2",
+      "name": "Iga Wyrwal B",
       "img": "sfd8gtg.jpg",
       "rating": 10
     },
     {
-      "name": "Lucy Pinder - 2",
+      "name": "Lucy Pinder B",
       "img": "gyd8fgtdg.jpeg",
       "rating": 10
     },
